@@ -1,6 +1,9 @@
 .vscode/
 .env**
+.eslintrc
 .gitignore
 .prettierrc
 yarn.lock
 src
+.idea/
+tsconfig.json
