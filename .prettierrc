@@ -1,0 +1,6 @@
+{
+  "arrowParens": "avoid",
+  "endOfLine": "lf",
+  "printWidth": 120,
+  "quoteProps": "consistent"
+}
