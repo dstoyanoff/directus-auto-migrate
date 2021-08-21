@@ -7,7 +7,7 @@
   "bin": {
     "directus-auto-migrate": "./dist/index.js"
   },
-  "repository": "https://github.com/dstoyanoff/directus-migrate",
+  "repository": "https://github.com/dstoyanoff/directus-auto-migrate",
   "author": "Daniel Stoyanoff",
   "license": "MIT",
   "scripts": {
