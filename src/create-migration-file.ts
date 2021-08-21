@@ -25,7 +25,13 @@ export default async function createMigrationFile(
 ): Promise<string> {
   const migrationFileContent = getContent(format, schema, deletes, inserts, updates);
 
-  await fs.mkdir(path.resolve(process.cwd(), destinationDir));
+  try {
+    await fs.mkdir(path.resolve(process.cwd(), destinationDir));
+  } catch (error) {
+    if (error.code != 'EEXIST') {
+      throw error;
+    }
+  }
 
   const fileName = await getFileName(name, destinationDir, format);
 
