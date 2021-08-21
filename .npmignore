@@ -1,0 +1,6 @@
+.vscode/
+.env**
+.gitignore
+.prettierrc
+yarn.lock
+src
