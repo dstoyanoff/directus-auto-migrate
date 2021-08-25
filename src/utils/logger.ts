@@ -28,7 +28,7 @@ function plain(data: unknown): void {
 function message(type: LogType, logMessage: string, data?: unknown): void {
   const formattedTitle = logCaption(type, logMessage);
 
-  const totalChars = process.stdout.columns - formattedTitle.length - 3;
+  const totalChars = (process.stdout.columns || 150) - formattedTitle.length - 3;
   const separators = "=".repeat(totalChars / 2);
 
   logger.log("\n%s\n", `${separators} ${formattedTitle} ${separators}`);

@@ -2,18 +2,23 @@ import { isObject } from "./common";
 
 /**
  * Stringifies all object properties to escape them in the generated query
+ * @param item item to format
+ */
+export const escapeSingle = <TItem>(item: TItem): TItem => {
+  const result = {};
+
+  Object.keys(item).forEach(key => {
+    result[key] = isObject(item[key]) ? JSON.stringify(item[key]) : item[key];
+  });
+
+  return result as TItem;
+};
+
+/**
+ * Stringifies all object properties to escape them in the generated query
  * @param items collection of items to format
  */
-export const escape = <TItem>(...items: TItem[]): TItem[] =>
-  items.map(item => {
-    const result = {};
-
-    Object.keys(item).forEach(key => {
-      result[key] = isObject(item[key]) ? JSON.stringify(item[key]) : item[key];
-    });
-
-    return result as TItem;
-  });
+export const escape = <TItem>(items: TItem[]): TItem[] => items.map(escapeSingle);
 
 /**
  * We have to remove the id, since we are comparing different states of the database, thus ids are not reliable.
