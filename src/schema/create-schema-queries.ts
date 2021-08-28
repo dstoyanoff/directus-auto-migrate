@@ -110,6 +110,7 @@ const sortTables = (tables: Table[]): Table[] => {
         .filter(
           column =>
             column.foreign_key_table &&
+            column.foreign_key_table !== table.name &&
             !isDirectusTable(column.foreign_key_table) &&
             tableNames.includes(column.foreign_key_table)
         )
