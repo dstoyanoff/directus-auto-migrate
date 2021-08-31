@@ -28,7 +28,7 @@ export default async function createMigrationFile(
   try {
     await fs.mkdir(path.resolve(process.cwd(), destinationDir));
   } catch (error) {
-    if (error.code != 'EEXIST') {
+    if (error.code != "EEXIST") {
       throw error;
     }
   }
@@ -110,20 +110,24 @@ ${down}
 }
 `;
 
-const generateJSMigration = (up: string, down: string): string => `/* eslint-disable no-irregular-whitespace */
-export async function up(knex) {
-  await knex.transaction(async transaction => {
-    await transaction.raw(\`
+const generateJSMigration = (
+  up: string,
+  down: string
+): string => `/* eslint-disable no-irregular-whitespace, no-undef */
+module.exports = {
+  async up(knex) {
+    await knex.transaction(async (transaction) => {
+      await transaction.raw(\`
 ${up}
-    \`);
-  });
-}
-
-export async function down(knex: Knex): Promise<void> {
-  await knex.transaction(async transaction => {
-    await transaction.raw(\`
+      \`);
+    });
+  },
+  async down(knex) {
+    await knex.transaction(async (transaction) => {
+      await transaction.raw(\`
 ${down}
-    \`);
-  });
-}
-  `;
+      \`);
+    });
+  },
+};
+`;

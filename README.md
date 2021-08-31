@@ -38,7 +38,7 @@ Optional arguments:
   are the same that Directus itself is using, trying to ensure a great level of compatibility. Defaults to **.env**
 - **stateFile** - path to the file to use as a state file. Defaults to **directus-state.json**
 - **migrationsDir** - path to the directory to write migrations in. Defaults to **src/migrations**
-- **format** (javascript/typescript) - whether to generate the migration as a JavaScript or a TypeScript file. Defaults to **typescript**
+- **format** (javascript/typescript) - whether to generate the migration as a JavaScript or a TypeScript file. Defaults to **javascript**
 
 ## Disclaimer
 

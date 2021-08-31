@@ -28,7 +28,7 @@ yargs(process.argv.slice(2)).command<CLIOptions>(
       .option("format", {
         type: "string",
         describe: "typescript/javascript",
-        default: "typescript",
+        default: "javascript",
       }),
   async argv => {
     initDb(argv.envFile);
