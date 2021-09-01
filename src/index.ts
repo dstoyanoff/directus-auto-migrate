@@ -1,4 +1,4 @@
-#!/usr/bin/env npx ts-node
+#!/usr/bin/env -S npx ts-node
 
 import yargs from "yargs/yargs";
 import { initDb } from "./database/connect";
