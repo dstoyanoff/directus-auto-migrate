@@ -4,4 +4,5 @@ export type CLIOptions = {
   migrationsDir: string;
   format: "typescript" | "javascript";
   envFile: string;
+  preview?: boolean;
 };

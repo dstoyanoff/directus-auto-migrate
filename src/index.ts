@@ -29,6 +29,12 @@ yargs(process.argv.slice(2)).command<CLIOptions>(
         type: "string",
         describe: "typescript/javascript",
         default: "javascript",
+      })
+      .option("preview", {
+        type: "boolean",
+        describe:
+          "Execute the diff, but don't write to the file-system. !!Exception: if this is the first run of the script, the state file will be created!!",
+        default: false,
       }),
   async argv => {
     initDb(argv.envFile);

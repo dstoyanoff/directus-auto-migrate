@@ -36,6 +36,11 @@ export default async function migrate(options: CLIOptions): Promise<void> {
     return;
   }
 
+  if (options.preview) {
+    log.message("success", "The script is in preview mode. No changes will be persisted to the file-system");
+    return;
+  }
+
   log.message("loading", "Generating your migration file...");
 
   const migrationFile = await createMigrationFile(
