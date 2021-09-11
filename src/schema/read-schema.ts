@@ -15,7 +15,7 @@ export default async function readSchema(allowedDirectusTables: string): Promise
 
   // Directus will take care of the system tables, so we exclude them
   const columnDefs = (await inspector.columnInfo()).filter(col =>
-    allowedDirectusTables.includes(col.table) || !isDirectusTable(col.table)
+    !isDirectusTable(col.table) || allowedDirectusTables.includes(col.table)
   );
 
   const state = columnDefs.reduce((result, def) => {
