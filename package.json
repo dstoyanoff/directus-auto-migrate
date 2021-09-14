@@ -1,6 +1,6 @@
 {
   "name": "directus-auto-migrate",
-  "version": "0.3.1",
+  "version": "0.3.2",
   "description": "A CLI to automatically generate Directus migrations based on the changes in a real instance",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
