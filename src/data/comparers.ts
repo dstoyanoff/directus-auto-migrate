@@ -28,7 +28,10 @@ export const permissionComparer = (permission1: DirectusPermission) => (permissi
   permission2.role === permission1.role;
 
 export const presetComparer = (preset1: DirectusPreset) => (preset2: DirectusPreset) =>
-  preset2.collection === preset1.collection && preset2.role === preset1.role;
+  preset2.collection === preset1.collection &&
+  preset2.bookmark === preset1.bookmark &&
+  preset2.role === preset1.role &&
+  preset2.user===preset1.user;
 
 export const relationComparer = (relation1: DirectusRelation) => (relation2: DirectusRelation) =>
   relation2.many_collection === relation1.many_collection &&
