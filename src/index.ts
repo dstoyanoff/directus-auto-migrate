@@ -35,6 +35,12 @@ yargs(process.argv.slice(2)).command<CLIOptions>(
         describe:
           "Execute the diff, but don't write to the file-system. !!Exception: if this is the first run of the script, the state file will be created!!",
         default: false,
+      })
+      .option("allowedDirectusTables", {
+        type: "string",
+        describe:
+          "A list of allowed directus tables, separated by comma (i.e directus_users,directus_files)",
+        default: "",
       }),
   async argv => {
     initDb(argv.envFile);

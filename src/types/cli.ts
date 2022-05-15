@@ -5,4 +5,5 @@ export type CLIOptions = {
   format: "typescript" | "javascript";
   envFile: string;
   preview?: boolean;
+  allowedDirectusTables: string;
 };
