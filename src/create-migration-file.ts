@@ -65,10 +65,10 @@ const getFileName = async (
 };
 
 const queriesMerge = (queryCollection: string[][]): string =>
-  queryCollection
-    .map(queries => queries.join(";\n"))
+  `${queryCollection
+    .map(queries => queries.join(";\\\n"))
     .filter(item => !!item)
-    .join(";\n \n");
+    .join(";\\\n \\\n ")}\\`;
 
 const getContent = (
   format: CLIOptions["format"],
@@ -95,17 +95,17 @@ import { Knex } from "knex";
 
 export async function up(knex: Knex): Promise<void> {
   await knex.transaction(async transaction => {
-    await transaction.raw(\`
+    await transaction.raw("\\
 ${up}
-    \`);
+     \\ ");
   });
 }
 
 export async function down(knex: Knex): Promise<void> {
   await knex.transaction(async transaction => {
-    await transaction.raw(\`
+    await transaction.raw("\\
 ${down}
-    \`);
+    \\ ");
   });
 }
 `;
@@ -117,16 +117,16 @@ const generateJSMigration = (
 module.exports = {
   async up(knex) {
     await knex.transaction(async (transaction) => {
-      await transaction.raw(\`
+      await transaction.raw("\\
 ${up}
-      \`);
+    \\ ");
     });
   },
   async down(knex) {
     await knex.transaction(async (transaction) => {
-      await transaction.raw(\`
+      await transaction.raw("\\
 ${down}
-      \`);
+      \\ ");
     });
   },
 };
