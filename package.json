@@ -21,7 +21,7 @@
     "dotenv": "^10.0.0",
     "jsondiffpatch": "^0.4.1",
     "knex": "^0.95.10",
-    "knex-schema-inspector": "^1.5.13",
+    "knex-schema-inspector": "^1.6.2",
     "mysql": "^2.18.1",
     "pg": "^8.7.1",
     "yargs": "^17.1.1"

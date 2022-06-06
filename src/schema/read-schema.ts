@@ -10,7 +10,8 @@ import log from "../utils/logger";
 export default async function readSchema(allowedDirectusTables: string): Promise<SchemaState> {
   log.message("loading", "Reading your database schema");
 
-  const inspector = SchemaInspector(db());
+  const connection:any = db();
+  const inspector = SchemaInspector(connection);
   const allowedTables = allowedDirectusTables.length ? allowedDirectusTables.split(',') : [];
 
   // Directus will take care of the system tables, so we exclude them
