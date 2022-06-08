@@ -1,3 +1,5 @@
+# This package is no longer maintained due to native schema migrations introduced in Directus - https://github.com/directus/directus/pull/7939
+
 # Directus Migrate
 
 ## Motivation
