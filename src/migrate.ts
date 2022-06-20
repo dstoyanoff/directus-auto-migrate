@@ -13,7 +13,7 @@ export default async function migrate(options: CLIOptions): Promise<void> {
   const hasStateFile = await stateFileExits(options.stateFile);
 
   const dbDataState = await readData();
-  const dbSchemaState = await readSchema();
+  const dbSchemaState = await readSchema(options.allowedDirectusTables);
 
   if (!hasStateFile) {
     log.message(

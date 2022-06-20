@@ -42,6 +42,7 @@ Optional arguments:
 - **migrationsDir** - path to the directory to write migrations in. Defaults to **src/migrations**
 - **format** (javascript/typescript) - whether to generate the migration as a JavaScript or a TypeScript file. Defaults to **javascript**
 - **preview** - whether to run the script to see the diff only, but without writing to the state file or creating the actual migration. Exception: if this is the first run of the script, the state file will be created. Defaults to **false**
+- **allowedDirectusTables** - A list of allowed directus tables, separated by comma (i.e directus_users,directus_files)
 
 ## Disclaimer
 
